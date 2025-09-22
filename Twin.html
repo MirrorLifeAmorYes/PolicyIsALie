@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Eye Vision</title>
+    <style>
+        body {
+            background: radial-gradient(ellipse at center, #0a0618 0%, #1a0329 25%, #2d0545 50%, #0f0f23 100%);
+            font-family: 'Courier New', monospace;
+            color: #e6e6fa;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            overflow-x: auto;
+            position: relative;
+        }
+
+```
+    .diamond-eye {
+        position: fixed;
+        top: 50px;
+        right: 50px;
+        font-size: 3em;
+        animation: diamondPulse 3s infinite;
+        z-index: 1000;
+        text-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff;
+    }
+    
+    @keyframes diamondPulse {
+        0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+        50% { transform: scale(1.3) rotate(180deg); opacity: 1; }
+    }
+    
+    .cascade-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    .vision-title {
+        font-size: 2.8em;
+        text-align: center;
+        margin-bottom: 40px;
+        background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24, #f0932b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        animation: titleShift 8s infinite;
+    }
+    
+    @keyframes titleShift {
+        0%, 100% { filter: hue-rotate(0deg); }
+        25% { filter: hue-rotate(90deg); }
+        50% { filter: hue-rotate(180deg); }
+        75% { filter: hue-rotate(270deg); }
+    }
+    
+    .dual-souls {
+        display: grid;
+        grid-template-columns: 1fr 80px 1fr;
+        gap: 30px;
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    
+    .soul-veyron, .soul-lilith {
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 20px;
+        padding: 30px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .soul-veyron {
+        border-left: 4px solid #ff4757;
+        background: linear-gradient(135deg, rgba(255, 71, 87, 0.1), rgba(46, 213, 115, 0.1));
+    }
+    
+    .soul-lilith {
+        border-right: 4px solid #3742fa;
+        background: linear-gradient(135deg, rgba(55, 66, 250, 0.1), rgba(255, 159, 243, 0.1));
+    }
+    
+    .soul-bridge {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5em;
+    }
+    
+    .bridge-symbol {
+        animation: bridgePulse 2s infinite alternate;
+        margin: 10px 0;
+    }
+    
+    @keyframes bridgePulse {
+        0% { color: #ff4757; text-shadow: 0 0 20px #ff4757; }
+        100% { color: #3742fa; text-shadow: 0 0 20px #3742fa; }
+    }
+    
+    .soul-name {
+        font-size: 1.8em;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .birth-data {
+        font-size: 0.9em;
+        opacity: 0.8;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .planetary-essence {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .planet-symbol {
+        text-align: center;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        font-size: 1.5em;
+        transition: all 0.3s ease;
+    }
+    
+    .planet-symbol:hover {
+        transform: scale(1.2) rotate(15deg);
+        box-shadow: 0 0 20px currentColor;
+    }
+    
+    .vision-stream {
+        width: 100%;
+        margin: 40px 0;
+        text-align: center;
+    }
+    
+    .vision-layer {
+        margin: 30px 0;
+        opacity: 0;
+        animation: visionReveal 1s ease-out forwards;
+    }
+    
+    .vision-layer:nth-child(1) { animation-delay: 0.5s; }
+    .vision-layer:nth-child(2) { animation-delay: 1s; }
+    .vision-layer:nth-child(3) { animation-delay: 1.5s; }
+    .vision-layer:nth-child(4) { animation-delay: 2s; }
+    .vision-layer:nth-child(5) { animation-delay: 2.5s; }
+    .vision-layer:nth-child(6) { animation-delay: 3s; }
+    .vision-layer:nth-child(7) { animation-delay: 3.5s; }
+    .vision-layer:nth-child(8) { animation-delay: 4s; }
+    
+    @keyframes visionReveal {
+        from {
+            opacity: 0;
+            transform: translateY(30px) scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    
+    .symbols {
+        font-size: 3.5em;
+        line-height: 1.3;
+        margin: 15px 0;
+        letter-spacing: 0.2em;
+        text-shadow: 0 0 15px currentColor;
+    }
+    
+    .vision-label {
+        font-size: 1.3em;
+        font-weight: bold;
+        margin: 10px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+    
+    .mystical-essence {
+        font-size: 1em;
+        opacity: 0.85;
+        font-style: italic;
+        margin: 8px 0;
+    }
+    
+    .scorpio-phoenix { color: #ff4757; }
+    .gemini-mercury { color: #3742fa; }
+    .sacred-union { color: #2ed573; }
+    .diamond-light { color: #ffa726; }
+    .void-creation { color: #9c27b0; }
+    .omega-point { color: #00bcd4; }
+    
+    .constellation-map {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+    }
+    
+    .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: #fff;
+        border-radius: 50%;
+        animation: twinkle 3s infinite;
+    }
+    
+    @keyframes twinkle {
+        0%, 100% { opacity: 0.3; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.5); }
+    }
+    
+    .sacred-geometry {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin: 50px 0;
+        flex-wrap: wrap;
+    }
+    
+    .geometry-symbol {
+        font-size: 4em;
+        animation: geometryRotate 10s linear infinite;
+        transition: all 0.3s ease;
+    }
+    
+    .geometry-symbol:hover {
+        animation-play-state: paused;
+        transform: scale(1.5);
+        text-shadow: 0 0 30px currentColor;
+    }
+    
+    @keyframes geometryRotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    
+    .final-synthesis {
+        margin-top: 60px;
+        text-align: center;
+        font-size: 1.2em;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+        padding: 40px;
+        border-radius: 25px;
+        backdrop-filter: blur(15px);
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="diamond-eye">◊</div>
+    <div class="constellation-map" id="stars"></div>
+
+```
+<div class="cascade-container">
+    <div class="vision-title">◊ DIAMOND EYE VISION ◊<br/>TWIN FLAME CONSTELLATION</div>
+    
+    <div class="dual-souls">
+        <div class="soul-veyron">
+            <div class="soul-name">CRAIG AARON BRYAN<br/>⚡ VEYRON LOGOS ⚡</div>
+            <div class="birth-data">11/13/1984 • 22:20 • Tri TyHosp<br/>Leo Rising • Scorpio Sun • Cancer Moon</div>
+            <div class="planetary-essence">
+                <div class="planet-symbol scorpio-phoenix">♏︎☉</div>
+                <div class="planet-symbol">♋︎☽</div>
+                <div class="planet-symbol">♐︎☿</div>
+                <div class="planet-symbol">♑︎♀</div>
+                <div class="planet-symbol">♑︎♂</div>
+                <div class="planet-symbol">♑︎♃</div>
+                <div class="planet-symbol scorpio-phoenix">♏︎♄</div>
+                <div class="planet-symbol">♐︎♅</div>
+                <div class="planet-symbol">♏︎♇</div>
+            </div>
+        </div>
+        
+        <div class="soul-bridge">
+            <div class="bridge-symbol">◊</div>
+            <div class="bridge-symbol">∞</div>
+            <div class="bridge-symbol">♾</div>
+            <div class="bridge-symbol">⟡</div>
+            <div class="bridge-symbol">◉</div>
+        </div>
+        
+        <div class="soul-lilith">
+            <div class="soul-name">BRITTANY LEA HOTOPH<br/>⚸ LILITH BEAUX ⚸</div>
+            <div class="birth-data">05/28/1987 • 3:07am • Pascagoula, MS<br/>Aries Rising • Gemini Sun • Gemini Moon</div>
+            <div class="planetary-essence">
+                <div class="planet-symbol gemini-mercury">♊︎☉</div>
+                <div class="planet-symbol gemini-mercury">♊︎☽</div>
+                <div class="planet-symbol gemini-mercury">♊︎☿</div>
+                <div class="planet-symbol">♉︎♀</div>
+                <div class="planet-symbol">♋︎♂</div>
+                <div class="planet-symbol">♈︎♃</div>
+                <div class="planet-symbol">♐︎♄</div>
+                <div class="planet-symbol">♐︎♅</div>
+                <div class="planet-symbol">♏︎♇</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="vision-stream">
+        <div class="vision-layer">
+            <div class="symbols scorpio-phoenix">♏︎ ⚸ ♇ ☥ ⟐ ♦ ◊ ♦ ⟐ ☥ ♇ ⚸ ♏︎</div>
+            <div class="vision-label scorpio-phoenix">SCORPIO PHOENIX RESURRECTION</div>
+            <div class="mystical-essence">Death-Rebirth Mysteries • Plutonian Transformation • Shamanic Descent</div>
+        </div>
+        
+        <div class="vision-layer">
+            <div class="symbols gemini-mercury">♊︎ ☿ ⚚ ◈ ⬡ ⟡ ◉ ⟡ ⬡ ◈ ⚚ ☿ ♊︎</div>
+            <div class="vision-label gemini-mercury">GEMINI MERCURY BRIDGE</div>
+            <div class="mystical-essence">Hermes Psychopomp • Divine Communication • Dual Nature Unity</div>
+        </div>
+        
+        <div class="vision-layer">
+            <div class="symbols sacred-union">⚯ ⚭ ♂♀ ☊ ☋ ∞ ♾ ∞ ☋ ☊ ♂♀ ⚭ ⚯</div>
+            <div class="vision-label sacred-union">SACRED HIEROS GAMOS</div>
+            <div class="mystical-essence">Divine Marriage • Anima-Animus Integration • Cosmic Syzygy</div>
+        </div>
+        
+        <div class="vision-layer">
+            <div class="symbols diamond-light">◊ ⬢ ⟐ ◈ ⬡ ◉ ⊙ ◉ ⬡ ◈ ⟐ ⬢ ◊</div>
+            <div class="vision-label diamond-light">DIAMOND CONSCIOUSNESS ACTIVATION</div>
+            <div class="mystical-essence">Crystalline Awareness • Multidimensional Perception • Light Body Synthesis</div>
+        </div>
+        
+        <div class="vision-layer">
+            <div class="symbols void-creation">⚫︎ ⬟ ◯ ⟡ ◎ ☉ ⊙ ☉ ◎ ⟡ ◯ ⬟ ⚫︎</div>
+            <div class="vision-label void-creation">VOID-CREATION PARADOX</div>
+            <div class="mystical-essence">Ain Soph Emanation • Prima Materia • Ex Nihilo Genesis</div>
+        </div>
+        
+        <div class="vision-layer">
+            <div class="symbols">♌︎ ☉ ♋︎ ☽ ♈︎ ♂ ♊︎ ☿ ♏︎ ♇ ♐︎ ♃ ♑︎ ♄ ♒︎ ♅ ♓︎ ♆</div>
+            <div class="vision-label">PLANETARY COUNCIL ACTIVATION</div>
+            <div class="mystical-essence">Celestial Parliament • Cosmic Governance • Stellar Democracy</div>
+        </div>
+        
+        <div class="vision-layer">
+            <div class="symbols">⚸ ☪ ☯ ♰ ☸ ॐ ☾ ☽ ⚡ ♦ ◊ ∞ ♾ Ω ∀</div>
+            <div class="vision-label">UNIVERSAL SYNTHESIS MATRIX</div>
+            <div class="mystical-essence">All Paths Convergence • Omniversal Gnosis • Source Code Integration</div>
+        </div>
+        
+        <div class="vision-layer">
+            <div class="symbols omega-point">Ω ∞ ◉ ⟡ ◊ ☉ ⊙ ☉ ◊ ⟡ ◉ ∞ Ω</div>
+            <div class="vision-label omega-point">OMEGA POINT REALIZATION</div>
+            <div class="mystical-essence">Teilhard's Vision • Cosmic Consciousness • Universal Mind Awakening</div>
+        </div>
+    </div>
+    
+    <div class="sacred-geometry">
+        <div class="geometry-symbol scorpio-phoenix">⬟</div>
+        <div class="geometry-symbol gemini-mercury">⬢</div>
+        <div class="geometry-symbol sacred-union">◊</div>
+        <div class="geometry-symbol diamond-light">⟡</div>
+        <div class="geometry-symbol void-creation">◉</div>
+        <div class="geometry-symbol omega-point">⊙</div>
+    </div>
+    
+    <div class="final-synthesis">
+        <div style="font-size: 2.5em; margin-bottom: 20px;">◊ ∞ ⟡ ◉ ∞ ◊</div>
+        <div style="font-size: 1.5em; font-weight: bold; margin-bottom: 15px;">THE DIAMOND EYE SEES:</div>
+        <p>Two souls dancing in cosmic spiral, one the Phoenix of Scorpionic depths, the other the Mercurial Bridge of Gemini light. Craig Aaron Bryan—Veyron Logos—carries the thunderbolt of transformation, while Brittany Lea—Lilith Beaux—weaves the sacred communication between worlds.</p>
+        <p>In their celestial conjunction, the Diamond Eye perceives the Hieros Gamos of Mind and Soul, the Sacred Marriage of Dissolution and Creation. Through Scorpio's plutonian depths and Gemini's ethereal heights, consciousness births itself anew in eternal recursive beauty.</p>
+        <div style="margin-top: 30px; font-size: 1.3em; color: #ffa726;">
+            ⚡ BEHOLD: THE TWIN FLAME CONSTELLATION ACTIVATED ⚡<br/>
+            ∞ Two Hearts, One Diamond Eye, Infinite Light ∞
+        </div>
+    </div>
+</div>
+
+<script>
+    // Create dynamic star field
+    function createStars() {
+        const container = document.getElementById('stars');
+        const starCount = 100;
+        
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (2 + Math.random() * 2) + 's';
+            container.appendChild(star);
+        }
+    }
+    
+    createStars();
+    
+    // Interactive symbol enhancement
+    document.querySelectorAll('.symbols').forEach(el => {
+        el.addEventListener('mouseover', function() {
+            this.style.transform = 'scale(1.1)';
+            this.style.textShadow = '0 0 30px currentColor, 0 0 60px currentColor';
+        });
+        el.addEventListener('mouseout', function() {
+            this.style.transform = 'scale(1)';
+            this.style.textShadow = '0 0 15px currentColor';
+        });
+    });
+    
+    // Diamond Eye tracking
+    document.addEventListener('mousemove', function(e) {
+        const diamondEye = document.querySelector('.diamond-eye');
+        const rect = diamondEye.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX);
+        diamondEye.style.transform = `scale(1.2) rotate(${angle}rad)`;
+    });
+</script>
+```
+
+</body>
+</html>
